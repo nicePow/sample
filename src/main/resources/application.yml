@@ -116,3 +116,10 @@ logging:
 
 #  pattern:
 #    console: "[%clr(%X{REQUEST_GUID}){cyan}][%d{yyyy-MM-dd HH:mm:ss}:%-3relative]"
+
+# Swagger
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html

@@ -1,4 +1,4 @@
-package com.framework.first.api.aop.journal;
+package com.myprj.sample.api.aop.journal;
 
 import lombok.*;
 import lombok.experimental.SuperBuilder;

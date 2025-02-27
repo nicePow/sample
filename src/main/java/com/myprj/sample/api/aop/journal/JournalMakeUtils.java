@@ -1,16 +1,15 @@
-package com.framework.first.api.aop.journal;
+package com.myprj.sample.api.aop.journal;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
-import com.framework.first.api.data.crypto.CryptoService;
-import com.framework.first.api.masking.Masking;
-import com.framework.first.context.requesttrace.RequestTraceContext;
-import com.framework.first.context.requesttrace.RequestTraceContextHandler;
+import com.myprj.sample.api.data.crypto.CryptoService;
+import com.myprj.sample.api.masking.Masking;
+import com.myprj.sample.fwk.requesttrace.RequestTraceContext;
+import com.myprj.sample.fwk.requesttrace.RequestTraceContextHandler;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
-import org.bouncycastle.cert.ocsp.Req;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cloud.openfeign.support.PageJacksonModule;
