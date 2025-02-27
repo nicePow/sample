@@ -33,6 +33,10 @@ dependencies {
 	runtimeOnly 'com.oracle.database.jdbc:ojdbc11'
 	runtimeOnly 'org.postgresql:postgresql'
 	annotationProcessor 'org.projectlombok:lombok'
+
+	/* Janino (for logback) : xml안에서 if를 사용할수 있도록 동적처리 하기위함 */
+	implementation 'org.codehaus.janino:janino'
+
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter-test:3.0.4'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
