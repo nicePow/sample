@@ -98,7 +98,7 @@ spring:
 # 환경별로 로그레벨 및 설정이 다를 수 있음
 logging:
 #  file:
-#    name: logs\application\
+#    name: "logs\application.log"
   level:
     root: INFO
     com.myprj.sample: DEBUG

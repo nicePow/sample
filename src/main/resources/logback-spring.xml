@@ -7,7 +7,7 @@
     <include resource="org/springframework/boot/logging/logback/file-appender.xml"/>
 
     <!-- 실시간 로그레벨 처리 필터 -->
-    <!--    <turboFilter class="deamon.api.log.LogDynamicFilter"/>-->
+    <trboFilter class="deamon.api.log.LogDynamicFilter"/>
 
     <!-- file-appender에서 쓰이는 항목 file appender를 설정안해도 파일이 생성된다. tmp폴더로 가도록 처리 : gridle에 janino 추가해야함 -->
     <property name="LOG_FILE" value="${LOG_FILE:-${LOG_PATH:-${LOG_TEMP:-${java.io.tmpdir:-/tmp}}}/spring.log}"/>
