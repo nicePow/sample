@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml"/>
+    <include resource="org/springframework/boot/logging/logback/file-appender.xml"/>
+
+    <!-- 출력패턴 프로퍼티. 여기서 정의하면 uml설정 무시됨-->
+<!--    <proprty name="CONSOLE_LOG_PATTERN" value="[%d{yyyy-MM-dd HH:mm:ss}:%-3relative][%clr(%thread){blue}][%clr(%-5level)][%clr(%logger{36}){magenta}]-%clr(%msg%n)"/>-->
+
+<!--    <root level="${LOG_LEVEL}">-->
+<!--        <appender-ref ref="CONSOLE" /> &lt;!&ndash; 콘솔에 출력한다 &ndash;&gt;-->
+<!--    </root>-->
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>[%d{yyyy-MM-dd HH:mm:ss}:%-3relative][%clr(%thread){blue}][%clr(%-5level)][%clr(%logger{36}){magenta}]-%clr(%msg%n)</pattern>
+        </encoder>
+    </appender>
+
+    <root level="${LOG_LEVEL}">
+        <appender-ref ref="STDOUT" />
+    </root>
+
+
+</configuration>
+
+
+
