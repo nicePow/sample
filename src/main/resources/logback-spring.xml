@@ -1,29 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
 
+    <springProperty scope="context" name="logging.file.name" source="logging.file.name" />
     <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
     <include resource="org/springframework/boot/logging/logback/console-appender.xml"/>
     <include resource="org/springframework/boot/logging/logback/file-appender.xml"/>
 
-    <!-- 출력패턴 프로퍼티. 여기서 정의하면 uml설정 무시됨-->
-<!--    <proprty name="CONSOLE_LOG_PATTERN" value="[%d{yyyy-MM-dd HH:mm:ss}:%-3relative][%clr(%thread){blue}][%clr(%-5level)][%clr(%logger{36}){magenta}]-%clr(%msg%n)"/>-->
+    <!-- 실시간 로그레벨 처리 필터 -->
+    <!--    <turboFilter class="deamon.api.log.LogDynamicFilter"/>-->
 
-<!--    <root level="${LOG_LEVEL}">-->
-<!--        <appender-ref ref="CONSOLE" /> &lt;!&ndash; 콘솔에 출력한다 &ndash;&gt;-->
-<!--    </root>-->
+    <!-- file-appender에서 쓰이는 항목 file appender를 설정안해도 파일이 생성된다. tmp폴더로 가도록 처리 : gridle에 janino 추가해야함 -->
+    <property name="LOG_FILE" value="${LOG_FILE:-${LOG_PATH:-${LOG_TEMP:-${java.io.tmpdir:-/tmp}}}/spring.log}"/>
 
-    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
-        <encoder>
-            <pattern>[%d{yyyy-MM-dd HH:mm:ss}:%-3relative][%clr(%thread){blue}][%clr(%-5level)][%clr(%logger{36}){magenta}]-%clr(%msg%n)</pattern>
-        </encoder>
-    </appender>
+    <!-- 출력패턴 프로퍼티. 여기서 정의하면 uml설정 무시됨 -->
+    <!--    <proprty name="FILE_LOG_PATTERN" value="[%X{REQUEST_GUID}][%d{yyyy-MM-dd HH:mm:ss}:%-3relative][%clr(%thread){blue}][%clr(%-5level)][%clr(%logger{36}){magenta}]-%clr(%msg%n)"/>-->
+    <!--    <proprty name="CONSOLE_LOG_PATTERN" value="[%clr(%X{REQUEST_GUID}){cyan}][%d{yyyy-MM-dd HH:mm:ss}:%-3relative][%clr(%thread){blue}][%clr(%-5level)][%clr(%logger{36}){magenta}]-%clr(%msg%n)"/>-->
 
     <root level="${LOG_LEVEL}">
-        <appender-ref ref="STDOUT" />
+        <appender-ref ref="CONSOLE" /> <!-- 콘솔에 출력한다 -->
+        <if condition='!property("logging.file.name").isEmpty()'>
+            <then>
+                <appender-ref ref="FILE" /> <!-- 파일에 출력한다 -->
+            </then>
+        </if>
     </root>
 
-
 </configuration>
-
-
-
