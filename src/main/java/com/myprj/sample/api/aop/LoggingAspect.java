@@ -3,7 +3,7 @@ package com.myprj.sample.api.aop;
 import ch.qos.logback.classic.Level;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.framework.first.api.aop.journal.JournalMakeUtils;
+import com.myprj.sample.api.aop.journal.JournalMakeUtils;
 import com.myprj.sample.api.log.LogRealtimeFilter;
 import com.myprj.sample.api.log.LogRealtimeLogLevelInterface;
 import com.myprj.sample.fwk.online.ResponseContext;
